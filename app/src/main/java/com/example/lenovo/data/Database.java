@@ -85,17 +85,19 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        if (cursor != null) cursor.moveToFirst();
-        do {
-            Contact contact = new Contact();
-            // contact.setPhone(String.valueOf(Integer.parseInt(cursor.getString(0))));
-            contact.setName(cursor.getString(1));
-            contact.setStreet(cursor.getString(2));
-            contact.setEmail(cursor.getString(3));
-            contact.setCounter(cursor.getString(4));
-            // Adding contact to list
-            array_list.add(contact);
-        } while (cursor.moveToNext());
+        if (cursor != null && cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            do {
+                Contact contact = new Contact();
+                // contact.setPhone(String.valueOf(Integer.parseInt(cursor.getString(0))));
+                contact.setName(cursor.getString(1));
+                contact.setStreet(cursor.getString(2));
+                contact.setEmail(cursor.getString(3));
+                contact.setCounter(cursor.getString(4));
+                // Adding contact to list
+                array_list.add(contact);
+            } while (cursor.moveToNext());
+        }
         return array_list;
     }
 
