@@ -146,7 +146,7 @@ public class Singlelist extends Activity {
                 helper.getWritableDatabase();
                 helper.deleteContact(Integer.valueOf(UserName));
                 helper.close();
-                Toast.makeText(Singlelist.this, "Record Deleted Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Singlelist.this, " Deleted Successfully", Toast.LENGTH_SHORT).show();
 
                 //cursor = SQLITEDATABASE.rawQuery(GetSQliteQuery, null);
 
